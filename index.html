@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">TaskFlow</div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="categories" id="categories">
+        <div class="category active" data-category="all"><span class="cat-icon">📝</span>All Tasks</div>
+        <div class="category" data-category="work"><span class="cat-icon">💼</span>Work</div>
+        <div class="category" data-category="projects"><span class="cat-icon">🚀</span>Projects</div>
+        <div class="category" data-category="personal"><span class="cat-icon">👤</span>Personal</div>
+        <div class="category" data-category="education"><span class="cat-icon">🎓</span>Education</div>
+        <div class="category" data-category="travel"><span class="cat-icon">✈️</span>Travel</div>
+        <div class="category" data-category="finance"><span class="cat-icon">💰</span>Finance</div>
+      </div>
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+      </div>
+    </aside>
+    <main>
+      <div class="search-wrapper">
+        <div class="search-bar-group">
+          <input type="text" class="search-bar" id="searchBar" placeholder=" " autocomplete="off">
+          <span class="search-icon">🔍</span>
+          <label for="searchBar">Search tasks...</label>
+        </div>
+        <div class="priority-filters" id="priorityFilters">
+          <span class="filter high active" data-priority="high">🔴 High</span>
+          <span class="filter medium" data-priority="medium">🟠 Medium</span>
+          <span class="filter low" data-priority="low">🟢 Low</span>
+        </div>
+      </div>
+      <button class="add-task-btn" id="addTaskBtn">＋ Add Task</button>
+      <div class="tasks-grid" id="tasksGrid">
+      </div>
+    </main>
+    <canvas class="confetti" id="confetti"></canvas>
+  </div>
+  <div class="modal-bg" id="modalBg" style="display:none">
+    <div class="modal add-task-modal" id="addTaskModal">
+      <h2>Add New Task</h2>
+      <form id="addTaskForm" autocomplete="off">
+        <label>Title <input type="text" id="taskTitle" required maxlength="60"></label>
+        <label>Category
+          <select id="taskCategory">
+            <option value="work">💼 Work</option>
+            <option value="projects">🚀 Projects</option>
+            <option value="personal">👤 Personal</option>
+            <option value="education">🎓 Education</option>
+            <option value="travel">✈️ Travel</option>
+            <option value="finance">💰 Finance</option>
+          </select>
+        </label>
+        <label>Priority
+          <select id="taskPriority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+        <div class="subtasks-section">
+          <label>Subtasks</label>
+          <div id="subtasksList"></div>
+          <button type="button" id="addSubtaskLine">＋ Add Subtask</button>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="submit">Add Task</button>
+          <button type="button" class="cancel" id="cancelModal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
